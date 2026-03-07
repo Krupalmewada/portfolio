@@ -1,0 +1,98 @@
+/* SECTION */
+
+.edu{
+  padding:120px 100px;
+  text-align:center;
+}
+
+/* SECTION TITLES */
+
+.section-subtitle{
+  letter-spacing:3px;
+  color:var(--textSecondary);
+  font-size:0.9rem;
+  margin-bottom:10px;
+}
+
+.section-title{
+  font-size:3rem;
+  margin-bottom:60px;
+}
+
+/* GRID */
+
+.education-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(320px, 420px));
+  justify-content:center;
+  gap:50px;
+}
+
+/* CARD */
+
+.education-card{
+  background:var(--backgroundcard);
+  padding:45px 35px;
+  border-radius:10px;
+  text-align:center;
+  transition:all 0.35s ease;
+  box-shadow:0 15px 30px rgba(0,0,0,0.35);
+  color:var(--textSecondary);
+}
+
+/* HOVER EFFECT */
+
+.education-card:hover{
+  transform:translateY(-6px);
+  box-shadow:
+    0 0 0 2px var(--popup),
+    0 12px 40px rgba(0,0,0,0.45);
+}
+
+/* ICON */
+
+.edu-icon{
+  width:110px;
+  height:110px;
+  background:linear-gradient(135deg,var(--popup),#713772);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:40px;
+  margin:0 auto 25px;
+}
+
+/* ICON COLOR */
+
+.edu-icon svg{
+  color:black;
+}
+
+/* DEGREE */
+
+.education-card h3{
+  font-size:1.6rem;
+  margin-bottom:10px;
+}
+
+/* FIELD */
+
+.edu-field{
+  color:var(--textSecondary);
+  margin-bottom:6px;
+}
+
+/* UNIVERSITY */
+
+.edu-school{
+  color:var(--textSecondary);
+  margin-bottom:6px;
+}
+
+/* YEAR */
+
+.edu-year{
+  color:var(--textSecondary);
+  font-weight:600;
+}

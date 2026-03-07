@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--textPrimary);
+  font-family: "Poppins", sans-serif;
+}
+#root {
+  min-height: 100vh;
+}

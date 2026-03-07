@@ -1,0 +1,150 @@
+/* PROJECT SECTION */
+
+.projects{
+  padding:120px 100px;
+}
+
+/* GRID */
+
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:50px;
+}
+
+/* CARD */
+
+.project-card{
+  perspective:1200px;
+}
+
+/* INNER CARD */
+
+.card-inner{
+  position:relative;
+  width:100%;
+  height:260px;
+  transform-style:preserve-3d;
+  transition:transform 0.6s ease;
+}
+
+/* FLIP */
+
+.project-card:hover .card-inner{
+  transform:rotateY(180deg);
+}
+
+/* FRONT + BACK */
+
+.card-front,
+.card-back{
+  position:absolute;
+  inset:0;               
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+  border-radius:10px;
+  backface-visibility:hidden;
+  box-shadow:0 15px 30px rgba(0,0,0,0.35);
+}
+
+/* FRONT */
+
+.card-front{
+  background:#2b2f39;
+  font-size:1.5em;
+  font-weight:bold;
+  text-align:center;
+}
+
+/* BACK */
+
+.card-back{
+  background:var(--popupcard);
+  transform:rotateY(180deg);
+  text-align:center;
+  font-size:1.5em;
+  line-height:1.6;
+}
+
+/* TEXT */
+
+.project-card h3{
+  margin-bottom:10px;
+}
+
+.project-card p{
+  color:var(--textSecondary);
+}
+
+.project-card span{
+  font-size:0.9em;
+  opacity:0.7;
+}
+/* ICON CONTAINER */
+
+.project-icon{
+  width:110px;
+  height:110px;
+  background:linear-gradient(135deg,var(--popup),#713772);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:48px;
+  color:#0b1a2b;
+  margin-bottom:25px;
+}
+
+/* CARD LAYOUT */
+
+.card-front{
+  background:var(--backgroundcard);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  color: var(--textSecondary);
+  text-align:center;
+}
+
+/* TITLE */
+
+.card-front h3{
+  font-size:1.6rem;
+  margin-bottom:10px;
+}
+
+/* SUBTITLE */
+
+.card-front span{
+  opacity:0.7;
+  font-size:0.9rem;
+}
+
+/* MAKE CARD TALLER */
+
+.card-inner{
+  height:340px;
+}
+/* SKILLS CONTAINER */
+
+.project-skills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  margin-top:20px;
+}
+
+/* SKILL TAG */
+
+.project-skills span{
+  background:var(--popupcard);
+  color:white;
+  padding:6px 14px;
+  border-radius:8px;
+  font-size:1.2rem;
+  font-weight:500;
+}
