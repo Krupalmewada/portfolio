@@ -1,9 +1,10 @@
 /* SECTION */
 
 .edu{
-  padding:120px 100px;
+  padding:96px 80px;
   text-align:center;
 }
+
 
 /* SECTION TITLES */
 
@@ -11,57 +12,62 @@
   letter-spacing:3px;
   color:var(--textSecondary);
   font-size:0.9rem;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 .section-title{
-  font-size:3rem;
-  margin-bottom:60px;
+  font-size:2.4rem;
+  margin-bottom:48px;
 }
+
 
 /* GRID */
 
 .education-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(320px, 420px));
+  grid-template-columns:repeat(auto-fit, minmax(260px, 336px));
   justify-content:center;
-  gap:50px;
+  gap:40px;
 }
+
 
 /* CARD */
 
 .education-card{
   background:var(--backgroundcard);
-  padding:45px 35px;
+  padding:36px 28px;
   border-radius:10px;
   text-align:center;
   transition:all 0.35s ease;
-  box-shadow:0 15px 30px rgba(0,0,0,0.35);
+  box-shadow:0 12px 24px rgba(0,0,0,0.35);
   color:var(--textSecondary);
 }
+
 
 /* HOVER EFFECT */
 
 .education-card:hover{
-  transform:translateY(-6px);
+  transform:translateY(-5px);
   box-shadow:
     0 0 0 2px var(--popup),
-    0 12px 40px rgba(0,0,0,0.45);
+    0 10px 32px rgba(0,0,0,0.45);
 }
+
 
 /* ICON */
 
 .edu-icon{
-  width:110px;
-  height:110px;
+  width:88px;
+  height:88px;
   background:linear-gradient(135deg,var(--popup),#713772);
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:40px;
-  margin:0 auto 25px;
+  font-size:32px;
+  margin:0 auto 20px;
 }
+
 
 /* ICON COLOR */
 
@@ -69,30 +75,86 @@
   color:black;
 }
 
+
 /* DEGREE */
 
 .education-card h3{
-  font-size:1.6rem;
-  margin-bottom:10px;
+  font-size:1.28rem;
+  margin-bottom:8px;
 }
+
 
 /* FIELD */
 
 .edu-field{
   color:var(--textSecondary);
-  margin-bottom:6px;
+  margin-bottom:5px;
 }
+
 
 /* UNIVERSITY */
 
 .edu-school{
   color:var(--textSecondary);
-  margin-bottom:6px;
+  margin-bottom:5px;
 }
+
 
 /* YEAR */
 
 .edu-year{
   color:var(--textSecondary);
   font-weight:600;
+}
+
+
+/* ============================= */
+/* TABLET RESPONSIVE */
+/* ============================= */
+
+@media (max-width:1024px){
+
+.edu{
+  padding:80px 50px;
+}
+
+.section-title{
+  font-size:2rem;
+}
+
+.education-grid{
+  gap:30px;
+}
+
+}
+
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width:768px){
+
+.edu{
+  padding:70px 30px;
+}
+
+.section-title{
+  font-size:1.8rem;
+}
+
+.education-grid{
+  grid-template-columns:1fr;
+}
+
+.education-card{
+  padding:30px 24px;
+}
+
+.edu-icon{
+  width:72px;
+  height:72px;
+  font-size:26px;
+}
+
 }

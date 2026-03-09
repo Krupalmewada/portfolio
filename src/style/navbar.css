@@ -1,18 +1,20 @@
-
 .navbar {
   position: sticky;
   top: 0;
   display: flex;
   justify-content: flex-end;
   z-index: 50;
-  padding: 20px 80px;
+  padding: 16px 64px;
 }
+
+/* NAV LINKS */
+
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 24px;
   list-style: none;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .nav-links li {
@@ -25,29 +27,86 @@
   text-decoration: none;
   color: inherit;
 }
+
 .nav-links li.active {
   color: var(--textPrimary);
 }
+
 .nav-links li:hover{
   color: var(--textPrimary);
 }
 
+
+/* ACTIVE DOT */
+
 .dot {
   position: absolute;
-  bottom: -8px;
+  bottom: -6px;
   left: 50%;
   transform: translateX(-50%);
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
   background: orange;
   border-radius: 50%;
 }
+
+
+/* MENU BUTTON */
+
 .menu-button{
   position: fixed;
-  right: 20px;
-  top: 20px;
-  font-size: 30px;
+  right: 16px;
+  top: 16px;
+  font-size: 24px;
   cursor: pointer;
   z-index: 1000;
   color: white;
+}
+
+
+/* ============================= */
+/* TABLET RESPONSIVE */
+/* ============================= */
+
+@media (max-width:1024px){
+
+.navbar{
+  padding:14px 40px;
+}
+
+.nav-links{
+  gap:18px;
+  font-size:1.1em;
+}
+
+}
+
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width:768px){
+
+.nav-links{
+  display:none;
+}
+
+.menu-button{
+  display:block;
+}
+
+}
+
+
+/* ============================= */
+/* DESKTOP */
+/* ============================= */
+
+@media (min-width:769px){
+
+.menu-button{
+  display:none;
+}
+
 }

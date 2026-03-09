@@ -1,11 +1,13 @@
+/* CONTACT SECTION */
+
 .contact{
-  padding:140px 100px;
+  padding:112px 80px;
   text-align:center;
 }
 
 .contact-desc{
-  max-width:600px;
-  margin:20px auto 40px;
+  max-width:480px;
+  margin:16px auto 32px;
   color:var(--textSecondary);
   line-height:1.6;
 }
@@ -13,17 +15,18 @@
 .contact-buttons{
   display:flex;
   justify-content:center;
-  gap:20px;
+  gap:16px;
   flex-wrap:wrap;
 }
 
-/* Main button */
+
+/* MAIN BUTTON */
 
 .contact-main-btn{
   display:flex;
   align-items:center;
-  gap:10px;
-  padding:14px 28px;
+  gap:8px;
+  padding:11px 22px;
   border-radius:8px;
   background:linear-gradient(135deg,var(--popup),#713772);
   color:white;
@@ -38,18 +41,19 @@
               0 10px 25px rgba(0,0,0,0.35);
 }
 
-/* Icon buttons */
+
+/* ICON BUTTONS */
 
 .contact-btn{
-  width:50px;
-  height:50px;
+  width:40px;
+  height:40px;
   border-radius:50%;
   background:var(--backgroundcard);
   display:flex;
   align-items:center;
   justify-content:center;
   color:var(--popup);
-  font-size:20px;
+  font-size:16px;
   text-decoration:none;
   transition:0.3s;
 }
@@ -57,4 +61,72 @@
 .contact-btn:hover{
   transform:translateY(-3px);
   box-shadow:0 0 0 2px var(--popup);
+}
+
+
+/* ========================= */
+/* TABLET RESPONSIVE */
+/* ========================= */
+
+@media (max-width:1024px){
+
+.contact{
+  padding:96px 50px;
+}
+
+.contact-desc{
+  max-width:420px;
+}
+
+}
+
+
+/* ========================= */
+/* MOBILE RESPONSIVE */
+/* ========================= */
+
+@media (max-width:768px){
+
+.contact{
+  padding:80px 30px;
+}
+
+.contact-desc{
+  max-width:100%;
+  font-size:14px;
+}
+
+.contact-buttons{
+  gap:12px;
+}
+
+.contact-main-btn{
+  padding:10px 20px;
+  font-size:13px;
+}
+
+.contact-btn{
+  width:36px;
+  height:36px;
+  font-size:14px;
+}
+
+}
+
+
+/* ========================= */
+/* SMALL PHONES */
+/* ========================= */
+
+@media (max-width:480px){
+
+.contact{
+  padding:64px 20px;
+}
+
+.contact-main-btn{
+  width:100%;
+  justify-content:center;
+}
+
 }

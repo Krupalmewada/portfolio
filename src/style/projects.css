@@ -1,16 +1,18 @@
 /* PROJECT SECTION */
 
 .projects{
-  padding:120px 100px;
+  padding:96px 80px;
 }
+
 
 /* GRID */
 
 .projects-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:50px;
+  gap:40px;
 }
+
 
 /* CARD */
 
@@ -18,15 +20,17 @@
   perspective:1200px;
 }
 
+
 /* INNER CARD */
 
 .card-inner{
   position:relative;
   width:100%;
-  height:260px;
+  height:272px;
   transform-style:preserve-3d;
   transition:transform 0.6s ease;
 }
+
 
 /* FLIP */
 
@@ -34,70 +38,24 @@
   transform:rotateY(180deg);
 }
 
+
 /* FRONT + BACK */
 
 .card-front,
 .card-back{
   position:absolute;
-  inset:0;               
+  inset:0;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:25px;
+  padding:20px;
   border-radius:10px;
   backface-visibility:hidden;
-  box-shadow:0 15px 30px rgba(0,0,0,0.35);
+  box-shadow:0 12px 24px rgba(0,0,0,0.35);
 }
+
 
 /* FRONT */
-
-.card-front{
-  background:#2b2f39;
-  font-size:1.5em;
-  font-weight:bold;
-  text-align:center;
-}
-
-/* BACK */
-
-.card-back{
-  background:var(--popupcard);
-  transform:rotateY(180deg);
-  text-align:center;
-  font-size:1.5em;
-  line-height:1.6;
-}
-
-/* TEXT */
-
-.project-card h3{
-  margin-bottom:10px;
-}
-
-.project-card p{
-  color:var(--textSecondary);
-}
-
-.project-card span{
-  font-size:0.9em;
-  opacity:0.7;
-}
-/* ICON CONTAINER */
-
-.project-icon{
-  width:110px;
-  height:110px;
-  background:linear-gradient(135deg,var(--popup),#713772);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:48px;
-  color:#0b1a2b;
-  margin-bottom:25px;
-}
-
-/* CARD LAYOUT */
 
 .card-front{
   background:var(--backgroundcard);
@@ -107,44 +65,133 @@
   justify-content:center;
   color: var(--textSecondary);
   text-align:center;
+  font-size:1.2em;
+  font-weight:bold;
 }
+
+
+/* BACK */
+
+.card-back{
+  background:var(--popupcard);
+  transform:rotateY(180deg);
+  text-align:center;
+  font-size:1.2em;
+  line-height:1.6;
+}
+
+
+/* TEXT */
+
+.project-card h3{
+  margin-bottom:8px;
+}
+
+.project-card p{
+  color:var(--textSecondary);
+}
+
+.project-card span{
+  font-size:0.72em;
+  opacity:0.7;
+}
+
+
+/* ICON */
+
+.project-icon{
+  width:88px;
+  height:88px;
+  background:linear-gradient(135deg,var(--popup),#713772);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:38px;
+  color:#0b1a2b;
+  margin-bottom:20px;
+}
+
 
 /* TITLE */
 
 .card-front h3{
-  font-size:1.6rem;
-  margin-bottom:10px;
+  font-size:1.28rem;
+  margin-bottom:8px;
 }
+
 
 /* SUBTITLE */
 
 .card-front span{
   opacity:0.7;
-  font-size:0.9rem;
+  font-size:0.72rem;
 }
 
-/* MAKE CARD TALLER */
 
-.card-inner{
-  height:340px;
-}
 /* SKILLS CONTAINER */
 
 .project-skills{
   display:flex;
   flex-wrap:wrap;
-  gap:10px;
+  gap:8px;
   justify-content:center;
-  margin-top:20px;
+  margin-top:16px;
 }
+
 
 /* SKILL TAG */
 
 .project-skills span{
   background:var(--popupcard);
   color:white;
-  padding:6px 14px;
+  padding:5px 11px;
   border-radius:8px;
-  font-size:1.2rem;
+  font-size:0.96rem;
   font-weight:500;
+}
+
+
+/* ============================= */
+/* TABLET */
+/* ============================= */
+
+@media (max-width:1024px){
+
+.projects{
+  padding:80px 50px;
+}
+
+.projects-grid{
+  grid-template-columns:repeat(2,1fr);
+  gap:30px;
+}
+
+}
+
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width:768px){
+
+.projects{
+  padding:70px 30px;
+}
+
+.projects-grid{
+  grid-template-columns:1fr;
+}
+
+.card-inner{
+  height:250px;
+}
+
+.project-icon{
+  width:72px;
+  height:72px;
+  font-size:30px;
+}
+
 }
