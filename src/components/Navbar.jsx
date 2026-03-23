@@ -1,24 +1,37 @@
-import "../style/navbar.css";
 import { useEffect, useState } from "react";
+import "../style/navbar.css";
+
+import {
+  HiOutlineHome,
+  HiOutlineFolder,
+  HiOutlineWrench,
+  HiOutlineAcademicCap,
+  HiOutlineEnvelope,
+} from "react-icons/hi2";
 
 export default function Navbar() {
-  const [activeSection, setActiveSection] = useState("about");
+  const [active, setActive] = useState("intro");
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["about", "projects", "edu", "skills", "contact"];
+      const sections = ["intro", "projects", "skills", "education", "contact"];
 
-      sections.forEach((section) => {
-        const element = document.getElementById(section);
+      let current = "";
+
+      sections.forEach((sec) => {
+        const element = document.getElementById(sec);
 
         if (element) {
-          const rect = element.getBoundingClientRect();
+          const top = element.offsetTop;
+          const height = element.offsetHeight;
 
-          if (rect.top <= 150 && rect.bottom >= 150) {
-            setActiveSection(section);
+          if (window.scrollY >= top - 200) {
+            current = sec;
           }
         }
       });
+
+      setActive(current);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -28,32 +41,45 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <ul className="nav-links">
-        <li className={activeSection === "about" ? "active" : ""}>
-          <a href="#about">About</a>
-          {activeSection === "about" && <span className="dot"></span>}
-        </li>
+      <div className="nav-container">
+        {/* INTRO */}
+        <a
+          href="#intro"
+          className={`nav-item ${active === "intro" ? "active" : ""}`}
+        >
+          <HiOutlineHome />
+        </a>
 
-        <li className={activeSection === "projects" ? "active" : ""}>
-          <a href="#projects">Projects</a>
-          {activeSection === "projects" && <span className="dot"></span>}
-        </li>
+        {/* PROJECTS */}
+        <a
+          href="#projects"
+          className={`nav-item ${active === "projects" ? "active" : ""}`}
+        >
+          <HiOutlineFolder />
+        </a>
 
-        <li className={activeSection === "edu" ? "active" : ""}>
-          <a href="#edu">Education</a>
-          {activeSection === "edu" && <span className="dot"></span>}
-        </li>
+        {/* SKILLS */}
+        <a
+          href="#skills"
+          className={`nav-item ${active === "skills" ? "active" : ""}`}
+        >
+          <HiOutlineWrench />
+        </a>
+        <a
+          href="#education"
+          className={`nav-item ${active === "education" ? "active" : ""}`}
+        >
+          <HiOutlineAcademicCap />
+        </a>
 
-        <li className={activeSection === "skills" ? "active" : ""}>
-          <a href="#skills">Skills</a>
-          {activeSection === "skills" && <span className="dot"></span>}
-        </li>
-
-        <li className={activeSection === "contact" ? "active" : ""}>
-          <a href="#contact">Contact</a>
-          {activeSection === "contact" && <span className="dot"></span>}
-        </li>
-      </ul>
+        {/* CONTACT */}
+        <a
+          href="#contact"
+          className={`nav-item ${active === "contact" ? "active" : ""}`}
+        >
+          <HiOutlineEnvelope />
+        </a>
+      </div>
     </nav>
   );
 }

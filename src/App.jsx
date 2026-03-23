@@ -3,23 +3,30 @@ import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
-import Contact from "./sections/Contact";
 import Education from "./sections/Education";
+import Contact from "./sections/Contact";
+import "./style/main.css";
 
-import "./App.css";
-
-function App() {
+export default function App() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <About />
-      <Projects />
-      <Education />
-      <Skills />
-      <Contact />
+
+      <div className="layout">
+        {/* LEFT SIDEBAR */}
+        <aside className="sidebar">
+          <Hero />
+        </aside>
+
+        {/* RIGHT CONTENT */}
+        <main className="content">
+          <About />
+          <Projects />
+          <Skills />
+          <Education />
+          <Contact />
+        </main>
+      </div>
     </>
   );
 }
-
-export default App;

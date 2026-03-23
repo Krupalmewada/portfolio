@@ -1,0 +1,110 @@
+/* SECTION */
+
+.about{
+  max-width:720px;
+}
+
+
+/* LABEL */
+
+.about-label{
+
+  font-size:12px;
+
+  letter-spacing:2px;
+
+  color:#888;
+
+  margin-bottom:16px;
+
+}
+
+
+/* HEADING */
+
+.about-heading{
+
+  font-size:44px;
+
+  line-height:1.2;
+
+  margin-bottom:24px;
+
+}
+
+
+/* HIGHLIGHT */
+
+.about-heading span{
+
+  color:#8b5cf6;
+
+}
+
+
+/* TEXT */
+
+.about-text{
+
+  color:#9ca3af;
+
+  line-height:1.7;
+
+  margin-bottom:32px;
+
+}
+
+
+/* BUTTONS */
+
+.about-buttons{
+
+  display:flex;
+
+  gap:16px;
+
+}
+
+
+/* PRIMARY BUTTON */
+
+.btn-primary{
+
+  padding:12px 24px;
+
+  border-radius:10px;
+
+  background:linear-gradient(
+    90deg,
+    #7c3aed,
+    #9333ea
+  );
+
+  color:white;
+
+  font-weight:500;
+
+}
+
+
+/* SECONDARY BUTTON */
+
+.btn-secondary{
+
+  padding:12px 24px;
+
+  border-radius:10px;
+
+  border:1px solid #333;
+
+  color:#ddd;
+
+  transition:0.3s;
+
+}
+
+.btn-secondary:hover{
+
+  background:#111;
+
+}

@@ -1,8 +1,18 @@
 :root {
-  --background: #1E2127;
-  --backgroundcard: #2d3139;
-  --textPrimary: #7f8c98;
-  --textSecondary: #b6d1e1;
-  --popup: #936bf0;
-  --popupcard: #5b4296;
+
+  /* BACKGROUND */
+
+  --background: #0b0b0b;
+  --backgroundcard: #121212;
+
+  /* TEXT */
+
+  --textPrimary: #9ca3af;
+  --textSecondary: #ffffff;
+
+  /* ACCENT */
+
+  --popup: #7c3aed;
+  --popupcard: #9333ea;
+
 }

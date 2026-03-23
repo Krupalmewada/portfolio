@@ -1,52 +1,38 @@
 import "../style/hero.css";
-import resume from "../assets/resume.pdf";
-import profile from "../assets/Me.png";
-import github from "../assets/github.png";
-import linkedin from "../assets/linkedin.png";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import profile from "../assets/profile.png";
+import noise from "../assets/noise.jpg";
+
 export default function Hero() {
   return (
-    <section className="hero" id="about">
-      <div className="hero-left">
-        <h1>
-          Krupal <br /> Mewada.
-        </h1>
+    <aside className="hero">
+      <div className="hero-card" style={{ "--noise": `url(${noise})` }}>
+        <img src={profile} alt="profile" className="profile-img" />
 
-        <div className="line"></div>
+        <h3>Krupal Mewada</h3>
+
+        <p className="role">Full Stack Developer</p>
+
+        <p className="location">Canada</p>
 
         <div className="socials">
-          <a
-            href="https://github.com/Krupalmewada"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={github} alt="GitHub" />
+          <a href="https://github.com/Krupalmewada" target="_blank">
+            <FaGithub />
           </a>
-          <a
-            href="https://www.linkedin.com/in/krupal-mewada/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={linkedin} alt="linkedin" />
+
+          <a href="https://www.linkedin.com/in/krupal-mewada/" target="_blank">
+            <FaLinkedin />
+          </a>
+
+          <a href="mailto:krupalmewada1017@gmail.com">
+            <FaEnvelope />
           </a>
         </div>
-      </div>
 
-      <div className="hero-image">
-        <img src={profile} alt="profile" />
+        <button className="talk-btn">
+          <a href="#contact">Let's Talk</a>
+        </button>
       </div>
-
-      <div className="hero-right">
-        <h2>Full Stack Developer</h2>
-
-        <p className="desc">
-          I build websites and applications with a creative touch. For me,
-          development is not just about code - it's about turning ideas into
-          digital experiences where technology and art work together.
-        </p>
-        <a href={resume} download className="resume-btn">
-          Download Resume
-        </a>
-      </div>
-    </section>
+    </aside>
   );
 }

@@ -1,95 +1,58 @@
 import "../style/skills.css";
-import { useEffect } from "react";
 
 import {
   FaReact,
-  FaHtml5,
-  FaCss3Alt,
   FaJava,
-  FaPython,
-  FaGitAlt,
   FaDocker,
+  FaGitAlt,
+  FaFigma,
+  FaCss3Alt,
 } from "react-icons/fa";
 
 import {
   SiJavascript,
-  SiPostgresql,
+  SiHtml5,
+  SiPython,
   SiFlutter,
   SiDart,
+  SiPostgresql,
+  SiMysql,
   SiAndroidstudio,
 } from "react-icons/si";
 
 export default function Skills() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          }
-        });
-      },
-      { threshold: 0.2 },
-    );
-
-    const items = document.querySelectorAll(".skill-box");
-    items.forEach((el) => observer.observe(el));
-  }, []);
+  const skills = [
+    { icon: FaReact, name: "React" },
+    { icon: SiJavascript, name: "JavaScript" },
+    { icon: SiHtml5, name: "HTML" },
+    { icon: FaCss3Alt, name: "CSS" },
+    { icon: FaJava, name: "Java" },
+    { icon: SiPython, name: "Python" },
+    { icon: SiFlutter, name: "Flutter" },
+    { icon: SiDart, name: "Dart" },
+    { icon: SiPostgresql, name: "PostgreSQL" },
+    { icon: SiMysql, name: "MySQL" },
+    { icon: FaGitAlt, name: "Git" },
+    { icon: FaDocker, name: "Docker" },
+    { icon: SiAndroidstudio, name: "Android Studio" },
+    { icon: FaFigma, name: "Figma" },
+  ];
 
   return (
-    <section id="skills" className="skills">
-      <p className="section-subtitle">TECHNOLOGIES & TOOLS</p>
+    <section className="skills" id="skills">
       <h2 className="section-title">Skills</h2>
 
       <div className="skills-grid">
-        <div className="skill-box">
-          <FaReact />
-          <span>React</span>
-        </div>
-        <div className="skill-box">
-          <SiJavascript />
-          <span>JavaScript</span>
-        </div>
-        <div className="skill-box">
-          <FaHtml5 />
-          <span>HTML</span>
-        </div>
-        <div className="skill-box">
-          <FaCss3Alt />
-          <span>CSS</span>
-        </div>
-        <div className="skill-box">
-          <FaJava />
-          <span>Java</span>
-        </div>
-        <div className="skill-box">
-          <FaPython />
-          <span>Python</span>
-        </div>
-        <div className="skill-box">
-          <SiFlutter />
-          <span>Flutter</span>
-        </div>
-        <div className="skill-box">
-          <SiDart />
-          <span>Dart</span>
-        </div>
-        <div className="skill-box">
-          <SiPostgresql />
-          <span>PostgreSQL</span>
-        </div>
-        <div className="skill-box">
-          <FaGitAlt />
-          <span>Git</span>
-        </div>
-        <div className="skill-box">
-          <FaDocker />
-          <span>Docker</span>
-        </div>
-        <div className="skill-box">
-          <SiAndroidstudio />
-          <span>Android Studio</span>
-        </div>
+        {skills.map((skill, index) => {
+          const Icon = skill.icon;
+
+          return (
+            <div className="skill-card" key={index}>
+              <Icon className="skill-icon" />
+              <span>{skill.name}</span>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

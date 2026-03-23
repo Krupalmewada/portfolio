@@ -1,115 +1,167 @@
+/* ========================= */
 /* CONTACT SECTION */
+/* ========================= */
 
-.contact{
-  padding:112px 80px;
-  text-align:center;
-}
-
-.contact-desc{
-  max-width:480px;
-  margin:16px auto 32px;
-  color:var(--textSecondary);
-  line-height:1.6;
-}
-
-.contact-buttons{
-  display:flex;
-  justify-content:center;
-  gap:16px;
-  flex-wrap:wrap;
+.contact {
+  padding: 60px 0;   /* 🔥 reduced from 140px */
+  text-align: center;
 }
 
 
-/* MAIN BUTTON */
+/* ========================= */
+/* TITLE */
+/* ========================= */
 
-.contact-main-btn{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:11px 22px;
-  border-radius:8px;
-  background:linear-gradient(135deg,var(--popup),#713772);
-  color:white;
-  text-decoration:none;
-  font-weight:500;
-  transition:0.3s;
-}
-
-.contact-main-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 0 2px var(--popup),
-              0 10px 25px rgba(0,0,0,0.35);
+.section-title {
+  font-size: 36px;
+  margin-bottom: 6px;   /* 🔥 tighter */
+  color: white;
+  letter-spacing: -0.5px;
 }
 
 
+/* ========================= */
+/* DESCRIPTION */
+/* ========================= */
+
+.contact-desc {
+  max-width: 420px;
+  margin: 0 auto 24px;   /* 🔥 reduced from 40px */
+  color: var(--textSecondary);
+  font-size: 15px;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+
+/* ========================= */
+/* BUTTON CONTAINER */
+/* ========================= */
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;   /* 🔥 slightly tighter */
+  flex-wrap: wrap;
+}
+
+
+/* ========================= */
+/* MAIN EMAIL BUTTON */
+/* ========================= */
+
+.contact-main-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 12px 20px;   /* 🔥 reduced */
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, var(--popup), #6d28d9);
+  color: white;
+
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.25);
+
+  transition: all 0.3s ease;
+}
+
+.contact-main-btn svg {
+  font-size: 16px;
+}
+
+.contact-main-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(124, 58, 237, 0.5);
+}
+
+
+/* ========================= */
 /* ICON BUTTONS */
+/* ========================= */
 
-.contact-btn{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  background:var(--backgroundcard);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--popup);
-  font-size:16px;
-  text-decoration:none;
-  transition:0.3s;
+.contact-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+  color: var(--popup);
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: all 0.3s ease;
 }
 
-.contact-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 0 2px var(--popup);
+.contact-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 12px var(--popup);
+  color: white;
 }
 
 
 /* ========================= */
-/* TABLET RESPONSIVE */
+/* TABLET */
 /* ========================= */
 
-@media (max-width:1024px){
+@media (max-width: 1024px) {
 
-.contact{
-  padding:96px 50px;
-}
+  .contact {
+    padding: 50px 20px;
+  }
 
-.contact-desc{
-  max-width:420px;
-}
+  .section-title {
+    font-size: 32px;
+  }
 
 }
 
 
 /* ========================= */
-/* MOBILE RESPONSIVE */
+/* MOBILE */
 /* ========================= */
 
-@media (max-width:768px){
+@media (max-width: 768px) {
 
-.contact{
-  padding:80px 30px;
-}
+  .contact {
+    padding: 40px 20px;
+  }
 
-.contact-desc{
-  max-width:100%;
-  font-size:14px;
-}
+  .section-title {
+    font-size: 28px;
+  }
 
-.contact-buttons{
-  gap:12px;
-}
+  .contact-desc {
+    font-size: 14px;
+  }
 
-.contact-main-btn{
-  padding:10px 20px;
-  font-size:13px;
-}
+  .contact-buttons {
+    gap: 10px;
+  }
 
-.contact-btn{
-  width:36px;
-  height:36px;
-  font-size:14px;
-}
+  .contact-main-btn {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .contact-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
 
 }
 
@@ -118,15 +170,15 @@
 /* SMALL PHONES */
 /* ========================= */
 
-@media (max-width:480px){
+@media (max-width: 480px) {
 
-.contact{
-  padding:64px 20px;
-}
+  .contact {
+    padding: 30px 16px;
+  }
 
-.contact-main-btn{
-  width:100%;
-  justify-content:center;
-}
+  .contact-main-btn {
+    width: 100%;
+    justify-content: center;
+  }
 
 }

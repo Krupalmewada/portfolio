@@ -1,112 +1,59 @@
-.navbar {
-  position: sticky;
-  top: 0;
-  display: flex;
-  justify-content: flex-end;
-  z-index: 50;
-  padding: 16px 64px;
-}
-
-/* NAV LINKS */
-
-.nav-links {
-  display: flex;
-  gap: 24px;
-  list-style: none;
-  font-weight: bold;
-  font-size: 1.2em;
-}
-
-.nav-links li {
-  position: relative;
-  cursor: pointer;
-  color: var(--textSecondary);
-}
-
-.nav-links a{
-  text-decoration: none;
-  color: inherit;
-}
-
-.nav-links li.active {
-  color: var(--textPrimary);
-}
-
-.nav-links li:hover{
-  color: var(--textPrimary);
-}
-
-
-/* ACTIVE DOT */
-
-.dot {
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 4px;
-  background: orange;
-  border-radius: 50%;
-}
-
-
-/* MENU BUTTON */
-
-.menu-button{
-  position: fixed;
-  right: 16px;
-  top: 16px;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 1000;
-  color: white;
-}
-
-
-/* ============================= */
-/* TABLET RESPONSIVE */
-/* ============================= */
-
-@media (max-width:1024px){
-
 .navbar{
-  padding:14px 40px;
+  position:fixed;
+  top:24px; /* slightly tighter */
+  left:50%;
+  transform:translateX(-50%);
+  z-index:1000;
 }
 
-.nav-links{
-  gap:18px;
-  font-size:1.1em;
+.nav-container{
+  display:flex;
+  gap:16px;
+
+  padding:12px 16px;
+
+  border-radius:20px;
+
+  background: rgba(20, 20, 20, 0.6); /* glass */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  box-shadow: 
+    0 8px 30px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.05);
 }
 
+.nav-item{
+  width:46px;
+  height:46px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:14px;
+
+  color:#9ca3af;
+  font-size:22px;
+
+  transition: all 0.25s ease;
 }
 
-
-/* ============================= */
-/* MOBILE */
-/* ============================= */
-
-@media (max-width:768px){
-
-.nav-links{
-  display:none;
+.nav-item:hover{
+  background: rgba(255,255,255,0.05);
+  color:white;
 }
 
-.menu-button{
-  display:block;
-}
+.nav-item.active{
 
-}
+  background:linear-gradient(
+    135deg,
+    var(--accent),
+    var(--accent-2)
+  );
 
-
-/* ============================= */
-/* DESKTOP */
-/* ============================= */
-
-@media (min-width:769px){
-
-.menu-button{
-  display:none;
-}
+  color:white;
 
 }
