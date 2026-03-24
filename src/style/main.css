@@ -126,3 +126,21 @@ img{
   }
 
 }
+
+@media (max-width:768px){
+
+  .layout{
+    padding:80px 24px;
+    gap:40px;
+  }
+
+}
+
+@media (max-width:480px){
+
+  .layout{
+    padding:70px 16px;
+    gap:32px;
+  }
+
+}

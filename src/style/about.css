@@ -108,3 +108,31 @@
   background:#111;
 
 }
+
+
+/* RESPONSIVE */
+
+@media (max-width:768px){
+
+  .about-heading{
+    font-size:32px;
+  }
+
+}
+
+@media (max-width:480px){
+
+  .about-heading{
+    font-size:26px;
+  }
+
+  .about-buttons{
+    flex-direction:column;
+  }
+
+  .btn-primary,
+  .btn-secondary{
+    text-align:center;
+  }
+
+}

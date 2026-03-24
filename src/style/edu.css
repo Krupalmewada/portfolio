@@ -101,3 +101,43 @@
   color:var(--textPrimary);
   font-weight:500;
 }
+
+
+/* RESPONSIVE */
+
+@media (max-width:768px){
+
+  .edu{
+    padding:60px 0;
+  }
+
+  .edu-title{
+    font-size:32px;
+  }
+
+  .edu-header{
+    margin-bottom:40px;
+  }
+
+  .edu-item{
+    grid-template-columns:44px 1fr;
+    gap:16px;
+  }
+
+  .edu-year{
+    grid-column:2;
+  }
+
+}
+
+@media (max-width:480px){
+
+  .edu-title{
+    font-size:26px;
+  }
+
+  .edu-item{
+    padding:20px;
+  }
+
+}
