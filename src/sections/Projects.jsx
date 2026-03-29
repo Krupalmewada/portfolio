@@ -2,6 +2,7 @@ import "../style/projects.css";
 import study from "../assets/study.jpg";
 import sustain from "../assets/sustain.jpg";
 import campus from "../assets/campus.png";
+import Insurance from "../assets/insurance.png";
 
 export default function Projects() {
   return (
@@ -9,6 +10,29 @@ export default function Projects() {
       <h2 className="section-title">Projects</h2>
 
       <div className="projects-list">
+        <div className="project-item">
+          <div className="project-image">
+            <img src={Insurance} alt="Insurance" />
+
+            <div className="project-info">
+              <h3>ClaimTrack — Insurance Claims Dashboard</h3>
+
+              <p>
+                A responsive, enterprise-style insurance claims management
+                dashboard built as a frontend portfolio project. It demonstrates
+                real-world React patterns including multi-user authentication,
+                protected routing, per-user data isolation, dark/light theming,
+                and full form validation — all without a backend.
+              </p>
+
+              <div className="project-tech">
+                <span>javascript</span>
+                <span>css</span>
+                <span>html</span>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="project-item">
           <div className="project-image">
             <img src={study} alt="AI Study Buddy" />
