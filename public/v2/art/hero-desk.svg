@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 250" width="460" height="250">
+<style>
+  .ln{fill:none;stroke:#000;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .ln-thin{fill:none;stroke:#000;stroke-width:1.3;stroke-linecap:round}
+  .fill-paper{fill:#E6E0CE}
+</style>
+<defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(38)">
+  <line x1="0" y1="0" x2="0" y2="7" stroke="#000" stroke-width="1.1"/></pattern></defs>
+<!-- the correspondent, drawn first so the desk sits in front of him -->
+        <path class="ln fill-paper" d="M84 206c0-31 18-49 46-49s46 18 46 49z"/>
+        <path class="ln fill-paper" d="M104 154c-7-7-11-16-11-26 0-19 16-31 37-31s37 12 37 31c0 10-4 19-11 26z"/>
+        <circle class="ln-thin fill-paper" cx="118" cy="127" r="10"/>
+        <circle class="ln-thin fill-paper" cx="143" cy="127" r="10"/>
+        <path class="ln-thin" d="M128 127h5"/>
+        <path class="ln-thin" d="M119 143q11 7 22 0"/>
+        <path class="ln-thin" d="M105 113q25-14 50 0"/>
+        <path class="ln-thin" d="M99 119c-6 2-9 6-9 12s3 9 6 12M162 119c6 2 9 6 9 12s-3 9-6 12"/>
+        <path class="ln-thin" d="M118 168l12 11 12-11"/>
+        <!-- desk, in front -->
+        <rect class="fill-paper" x="6" y="207" width="448" height="43"/>
+        <path class="ln" d="M14 206h432"/>
+        <path class="ln-thin" d="M52 208v42M408 208v42"/>
+        <rect x="14" y="207" width="432" height="9" fill="url(#hatch)" opacity=".45"/>
+        <!-- laptop -->
+        <path class="ln fill-paper" d="M152 206l14-56h128l14 56z"/>
+        <path class="ln fill-paper" d="M176 150V78h108v72z"/>
+        <path class="ln-thin" d="M188 94h84M188 106h62M188 118h74M188 130h42"/>
+        <rect class="ln fill-paper" x="166" y="146" width="128" height="7" rx="2"/>
+        <!-- mug -->
+        <path class="ln fill-paper" d="M330 206v-26h30v26z"/>
+        <path class="ln" d="M360 186h9a6 6 0 0 1 0 12h-9"/>
+        <path class="ln-thin" d="M338 170c4-6-2-10 2-16M350 170c4-6-2-10 2-16"/>
+        <!-- eight finished pages, stacked -->
+        <g transform="translate(378,150)">
+          <rect class="ln fill-paper" x="0" y="42" width="56" height="14"/>
+          <rect class="ln fill-paper" x="3" y="28" width="56" height="14"/>
+          <rect class="ln fill-paper" x="0" y="14" width="56" height="14"/>
+          <rect class="ln fill-paper" x="4" y="0" width="56" height="14"/>
+        </g>
+</svg>
