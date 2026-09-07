@@ -160,11 +160,8 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
 .toon .art{
   position:relative;aspect-ratio:4/3;background:var(--paper-lit);overflow:hidden;
 }
-/* your artwork fills the frame edge to edge */
+
 .toon .art img{width:100%;height:100%;object-fit:cover;display:block}
-/* the shipped placeholders are line drawings — they need air, not cropping.
-   DELETE the word "placeholder" from a panel's <div class="art placeholder"> when you
-   drop your own illustration in. */
 .toon .art.placeholder img{object-fit:contain;padding:9%}
 .toon .txt{display:flex;flex-direction:column;flex:1}
 .toon.lead{grid-column:1/-1;transform:none;flex-direction:row;gap:calc(var(--gutter) * 1.2)}
@@ -175,9 +172,7 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
   font-family:var(--hand);font-weight:400;font-size:1.3rem;
   margin:0;line-height:1.15;
 }
-/* Your artwork also carries the caption. If you would rather trust the picture,
-   change the next line to  .toon .caption{display:none}  and the panels lose
-   the printed version. Left visible on purpose — see the README. */
+
 .toon .caption{
   font-size:.86rem;line-height:1.5;font-style:italic;margin:0;color:var(--ink-soft);
 }
@@ -297,20 +292,20 @@ svg .fill-paper{fill:var(--paper-lit)}
     </div>
   </header>
 
-  <!-- ================= ABOVE THE FOLD ================= -->
+  
   <div class="above-fold">
 
     <section class="framed hero-panel" aria-label="Introduction cartoon">
       <img class="hero-art" src="art/hero-desk.svg" alt="Line drawing of a developer at a desk with a laptop, a mug, and a stack of finished pages." loading="lazy">
-      <p class="sig">Your correspondent, at his desk in Waterloo</p>
+      <p class="sig">Your correspondent, at his desk in canada</p>
     </section>
 
     <section class="framed column" aria-label="About">
       <div class="kicker">FROM THE EDITOR'S DESK</div>
-      <h3>He finished the degree. Now what?</h3>
-      <p>Krupal Mewada completed a Master of Applied Computing at Wilfrid Laurier University in January 2026, arriving with a year already spent writing production code as an Associate Software Developer at Technetics IT Services in India.</p>
-      <p>He builds the whole thing: React and Next.js on the front, Node and Express behind it, PostgreSQL underneath, Docker and GitHub Actions to get it out the door. He is fond of TypeScript, suspicious of clever abstractions, and has strong feelings about migrations.</p>
-      <p>He is currently available for junior and mid-level roles across Kitchener–Waterloo, Toronto, and remote Canada. Enquiries below.</p>
+      <h3>She finished the degree. Now what?</h3>
+      <p>Krupal Mewada completed a Master of Applied Computing at Wilfrid Laurier University in 2026, arriving with a year already spent writing production code as an Associate Software Developer at Technetics IT Services in India.</p>
+      <p>She builds the whole thing: React and Next.js on the front, Node and Express behind it, PostgreSQL underneath, Docker and GitHub Actions to get it out the door. She is fond of TypeScript, suspicious of clever abstractions, and has strong feelings about migrations.</p>
+      <p>She is currently available for junior and mid-level roles across Canada. Enquiries below.</p>
     </section>
   </div>
 
