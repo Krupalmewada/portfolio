@@ -145,8 +145,9 @@ body{
 @media (max-width:780px){.strip{grid-template-columns:1fr}}
 
 .toon{
+  position:relative;cursor:pointer;
   display:flex;flex-direction:column;gap:10px;
-  text-decoration:none;color:inherit;background:none;border:0;
+  color:inherit;background:none;border:0;
   transition:transform .18s ease;
 }
 .toon:nth-child(3n){transform:rotate(-.35deg)}
@@ -155,35 +156,54 @@ body{
   .toon:hover{transform:rotate(0deg) translateY(-3px)}
   .toon.lead:hover{transform:translateY(-3px)}
 }
+/* tap feedback, because touch devices have no hover */
+.toon:active{transform:scale(.994)}
 a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
 
 .toon .art{
   position:relative;aspect-ratio:4/3;background:var(--paper-lit);overflow:hidden;
 }
-
 .toon .art img{width:100%;height:100%;object-fit:cover;display:block}
+/* only for the shipped line drawings — your illustrations fill the frame */
 .toon .art.placeholder img{object-fit:contain;padding:9%}
 .toon .txt{display:flex;flex-direction:column;flex:1}
 .toon.lead{grid-column:1/-1;transform:none;flex-direction:row;gap:calc(var(--gutter) * 1.2)}
 .toon.lead .art{flex:1}
 .toon.lead .txt{flex:1;justify-content:center}
 @media (max-width:780px){.toon.lead{flex-direction:column}}
+
 .toon h3{
   font-family:var(--hand);font-weight:400;font-size:1.3rem;
   margin:0;line-height:1.15;
 }
+/* the whole panel is the hit area, but a screen reader only ever hears the
+   project title as the link name — never the entire card */
+.toon h3 a{
+  color:inherit;text-decoration:underline;text-decoration-thickness:1px;
+  text-underline-offset:3px;text-decoration-color:rgba(0,0,0,.4);
+}
+.toon h3 a::after{content:"";position:absolute;inset:0;z-index:1}
 
 .toon .caption{
   font-size:.86rem;line-height:1.5;font-style:italic;margin:0;color:var(--ink-soft);
 }
-.toon .stack{margin-top:auto;
+/* margin:auto 0 0 pins this to the bottom. Writing margin:0 after
+   margin-top:auto silently cancels it — that was the old bug. */
+.toon .stack{
   font-family:var(--hand);font-size:.85rem;color:var(--ink);
-  border-top:1px solid var(--ink);padding-top:6px;margin:0;
+  border-top:1px solid var(--ink);padding-top:6px;margin:auto 0 0;
 }
-.toon .live{
-  font-family:var(--hand);font-size:.85rem;
-  color:var(--press-red);text-decoration:underline;text-underline-offset:3px;
-  overflow-wrap:anywhere;
+/* the printed cue — the only one that exists on a phone */
+.toon .jump{
+  font-family:var(--hand);font-size:.92rem;color:var(--press-red);
+  margin:7px 0 0;overflow-wrap:anywhere;
+}
+.toon .jump .arrow{display:inline-block;transition:transform .18s ease}
+/* text stays selectable above the invisible click overlay */
+.toon .caption,.toon .stack,.toon .jump{position:relative;z-index:2;pointer-events:none}
+@media (hover:hover){
+  .toon:hover h3 a{text-decoration-color:var(--press-red);text-decoration-thickness:2px}
+  .toon:hover .jump .arrow{transform:translateX(5px)}
 }
 
 /* ---------- classifieds ---------- */
@@ -215,12 +235,6 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
   font-size:.72rem;letter-spacing:.04em;
 }
 
-/* ink line defaults for every drawing */
-svg .ln{fill:none;stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-svg .ln-thin{fill:none;stroke:var(--ink);stroke-width:1.3;stroke-linecap:round}
-svg .fill-red{fill:var(--press-red)}
-svg .fill-paper{fill:var(--paper-lit)}
-
 /* ---------- small screens ---------- */
 @media (max-width:780px){
   /* nowrap headings were overflowing the viewport */
@@ -248,10 +262,15 @@ svg .fill-paper{fill:var(--paper-lit)}
   body{background:#fff}
   .sheet{max-width:none;margin:0;padding:0;box-shadow:none;background:#fff}
   .sheet::before,.sheet::after{display:none}
-  .toon{break-inside:avoid;transform:none}
+  .toon{break-inside:avoid;transform:none;cursor:auto}
   .toon.lead{break-after:page}
   a{text-decoration:none;color:#000}
-  .toon .live::after{content:" (" attr(href) ")";font-size:.8em}
+  /* on paper the stretched overlay is useless — print the URL instead */
+  .toon h3 a::after{
+    content:" (" attr(href) ")";position:static;inset:auto;
+    font-family:var(--serif);font-size:.62em;
+  }
+  .toon .jump{display:none}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -292,11 +311,10 @@ svg .fill-paper{fill:var(--paper-lit)}
     </div>
   </header>
 
-  
   <div class="above-fold">
 
     <section class="framed hero-panel" aria-label="Introduction cartoon">
-      <img class="hero-art" src="art/hero-desk.svg" alt="Line drawing of a developer at a desk with a laptop, a mug, and a stack of finished pages." loading="lazy">
+      <img class="hero-art" src="art/hero-desk.png" alt="Editorial cartoon of a cluttered desk: a pigeon perched on a stack of books beside a computer terminal." loading="lazy">
       <p class="sig">Your correspondent, at his desk in canada</p>
     </section>
 
@@ -309,87 +327,96 @@ svg .fill-paper{fill:var(--paper-lit)}
     </section>
   </div>
 
-  <!-- ================= PROJECTS ================= -->
+  <!-- ================= PROJECTS =================
+       Each panel is clickable across its whole area. The <a> sits on the
+       <h3> and is stretched over the card by .toon h3 a::after — so the
+       link's accessible name stays just the project title.
+       Every panel needs a destination. FILL-ME-IN below must be replaced. -->
   <div class="section-head"><h2>Today's strip: seven things I built</h2></div>
 
   <div class="strip">
 
     <article class="framed toon lead">
-      <div class="art placeholder">
-        <img class="motif" src="art/ddos.svg" alt="A shield absorbing incoming arrows" loading="lazy">
+      <div class="art">
+        <img class="motif" src="art/ddos.png" alt="Editorial cartoon: a shield labelled Smart Shield deflecting a swarm of bugs in a server room." loading="lazy">
       </div>
       <div class="txt">
-      <h3>DDoS Attack Dashboard</h3>
+      <h3><a href="https://ddos-attack-dashboard.vercel.app" target="_blank" rel="noopener">DDoS Attack Dashboard</a></h3>
       <p class="caption">The Master's research said the filtering was adaptive. The dashboard says it in colour, with an admin login.</p>
       <p class="stack">React · Supabase · Recharts</p>
-      <a class="live" href="https://ddos-attack-dashboard.vercel.app">ddos-attack-dashboard.vercel.app</a>
+      <p class="jump">Continued at ddos-attack-dashboard.vercel.app <span class="arrow">→</span></p>
       </div>
     </article>
 
     <article class="framed toon">
-      <div class="art placeholder">
-        <img class="motif" src="art/fitness.svg" alt="A rising chart line above a dumbbell" loading="lazy">
+      <div class="art">
+        <img class="motif" src="art/fitness.png" alt="Editorial cartoon illustrating the Fitness Tracker project." loading="lazy">
       </div>
       <div class="txt">
-      <h3>Fitness Tracker</h3>
+      <h3><a href="https://fitness-tracker-eosin-eight.vercel.app/" target="_blank" rel="noopener">Fitness Tracker</a></h3>
       <p class="caption">Five tables, cascading deletes, UUID keys throughout — and still no excuse to skip leg day.</p>
       <p class="stack">Next.js · PostgreSQL · Docker · Actions</p>
+      <p class="jump">Continued on GitHub <span class="arrow">→</span></p>
       </div>
     </article>
 
     <article class="framed toon">
-      <div class="art placeholder">
-        <img class="motif" src="art/github-intel.svg" alt="Magnifying glass over a bar chart" loading="lazy">
+      <div class="art">
+        <img class="motif" src="art/github-intel.png" alt="Editorial cartoon: a magnifying glass on a stand examining bar charts on a blackboard beside an old computer." loading="lazy">
       </div>
       <div class="txt">
-      <h3>GitHub Career Intelligence</h3>
+      <h3><a href="https://github-career-intel.vercel.app/" target="_blank" rel="noopener">GitHub Career Intelligence</a></h3>
       <p class="caption">Reads your repos by byte weight and tells you which language you actually write — not the one on your résumé.</p>
       <p class="stack">React · GitHub REST · Recharts</p>
-      <a class="live" href="https://github-career-intel.vercel.app">github-career-intel.vercel.app</a>
+      <p class="jump">Continued at github-career-intel.vercel.app <span class="arrow">→</span></p>
       </div>
     </article>
 
     <article class="framed toon">
-      <div class="art placeholder">
-        <img class="motif" src="art/estatehub.svg" alt="A house with a letting sign outside" loading="lazy">
+      <div class="art">
+        <img class="motif" src="art/estatehub.png" alt="Editorial cartoon: a small machine stamping a floor plan laid out on a drafting table." loading="lazy">
       </div>
       <div class="txt">
-      <h3>EstateHub</h3>
+      <h3><a href="https://estate-bsb0yw04e-krupalmewadas-projects.vercel.app/" target="_blank" rel="noopener">EstateHub</a></h3>
       <p class="caption">Listings, filters, and a search that does not quietly round the square footage up.</p>
       <p class="stack">TypeScript · React · Express · PostgreSQL</p>
+      <p class="jump">Continued on GitHub <span class="arrow">→</span></p>
       </div>
     </article>
 
     <article class="framed toon">
-      <div class="art placeholder">
-        <img class="motif" src="art/claimtrack.svg" alt="A clipboard holding a small chart" loading="lazy">
+      <div class="art">
+        <img class="motif" src="art/claimtrack.png" alt="Editorial cartoon: an insurance claim flowchart on a clipboard beside a quill and inkwell." loading="lazy">
       </div>
       <div class="txt">
-      <h3>ClaimTrack</h3>
+      <h3><a href="https://insurance-claims-dashboard-9cwxiowbf-krupalmewadas-projects.vercel.app/" target="_blank" rel="noopener">ClaimTrack</a></h3>
       <p class="caption">Insurance claims, charted. Somebody had to make the paperwork legible and it may as well have been me.</p>
       <p class="stack">React 18 · TypeScript · Router v6 · Vite</p>
+      <p class="jump">Continued on GitHub <span class="arrow">→</span></p>
       </div>
     </article>
 
     <article class="framed toon">
-      <div class="art placeholder">
-        <img class="motif" src="art/sustain.svg" alt="A phone camera pointed at a leaf" loading="lazy">
+      <div class="art">
+        <img class="motif" src="art/sustain.png" alt="Editorial cartoon illustrating the SustAIn waste-sorting app." loading="lazy">
       </div>
       <div class="txt">
-      <h3>SustAIn</h3>
+      <h3><a href="https://github.com/Krupalmewada/sust_ai_n" target="_blank" rel="noopener">SustAIn</a></h3>
       <p class="caption">Point the camera at your rubbish and it judges you, politely, on device.</p>
       <p class="stack">Flutter · Firebase · ML Kit · SQLite</p>
+      <p class="jump">Continued on GitHub <span class="arrow">→</span></p>
       </div>
     </article>
 
     <article class="framed toon">
-      <div class="art placeholder">
-        <img class="motif" src="art/pomodoro.svg" alt="A tomato timer with a clock face" loading="lazy">
+      <div class="art">
+        <img class="motif" src="art/pomodoro.png" alt="Editorial cartoon illustrating the Pomodoro browser extension." loading="lazy">
       </div>
       <div class="txt">
-      <h3>Pomodoro Extension</h3>
+      <h3><a href="https://github.com/Krupalmewada/pomodoro_timer" target="_blank" rel="noopener">Pomodoro Extension</a></h3>
       <p class="caption">Twenty-five minutes of focus, injected into whichever tab is currently lying to you about productivity.</p>
       <p class="stack">React · Vite · CRXJS · Shadow DOM</p>
+      <p class="jump">Continued on GitHub <span class="arrow">→</span></p>
       </div>
     </article>
 
@@ -417,23 +444,23 @@ svg .fill-paper{fill:var(--paper-lit)}
 
   <section class="letters">
     <div class="framed" aria-label="Contact cartoon">
-      <img class="hero-art" src="art/contact-post.svg" alt="A fountain pen resting on a written letter, with an envelope behind it." loading="lazy">
+      <img class="hero-art" src="art/contact-post.png" alt="Editorial cartoon: a fountain pen resting on a written letter beside a post box." loading="lazy">
     </div>
 
     <div class="framed">
       <div class="kicker">HOW TO REACH THE DESK</div>
       <ul class="wants">
-        <li><a href="mailto:krupalmewada0101@gmail.com">Write a letter (krupalmewada0101@gmail.com)</a></li>
+        <li><a href="mailto:krupalmewada0107@gmail.com">Write a letter (krupalmewada0107@gmail.com)</a></li>
         <li><a href="https://github.com/krupalmewada">Inspect the archives (GitHub)</a></li>
-        <li><a href="https://linkedin.com">Formal correspondence (LinkedIn)</a></li>
-        <li><a href="#">Collect the résumé (PDF)</a></li>
+        <li><a href="https://www.linkedin.com/in/krupal-mewada/">Formal correspondence (LinkedIn)</a></li>
+        <li><a href="art/Krupal_Resume.pdf">Collect the résumé (PDF)</a></li>
       </ul>
     </div>
   </section>
 
   <footer class="colophon">
-    <span>Set in Libre Baskerville and Patrick Hand. Drawings exported as SVG assets.</span>
-    <span><a href="../" style="color:inherit">← the previous edition</a>  ·  © <span id="yr">2026</span> Krupal Mewada · Kitchener–Waterloo</span>
+    <span>Set in Libre Baskerville and Patrick Hand.</span>
+    <span><a href="../" style="color:inherit">← the previous edition</a>  ·  © <span id="yr">2026</span> Krupal Mewada · canada</span>
   </footer>
 
 </main>
