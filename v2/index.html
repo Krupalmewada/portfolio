@@ -36,7 +36,7 @@ body{
   line-height:1.6;
 }
 
-/* ---------- the page itself: one printed sheet ---------- */
+
 .sheet{
   position:relative;
   max-width:1160px;
@@ -45,7 +45,7 @@ body{
   background:var(--paper);
   box-shadow:0 1px 0 rgba(0,0,0,.35),0 18px 44px rgba(0,0,0,.32);
 }
-/* newsprint fibre + halftone, layered */
+
 .sheet::before{
   content:"";position:absolute;inset:0;pointer-events:none;z-index:3;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/></filter><rect width='180' height='180' filter='url(%23f)' opacity='0.55'/></svg>");
@@ -59,7 +59,7 @@ body{
 }
 .sheet > *{position:relative;z-index:4}
 
-/* ---------- hand-inked frames ---------- */
+
 .framed{position:relative;padding:clamp(14px,2vw,22px)}
 .framed::before{
   content:"";position:absolute;inset:0;border:2.5px solid var(--ink);
@@ -68,7 +68,7 @@ body{
 .framed:nth-of-type(2n)::before{filter:url(#ink-b)}
 .framed:nth-of-type(3n)::before{filter:url(#ink-c)}
 
-/* ---------- masthead ---------- */
+
 .masthead{text-align:center;padding-bottom:6px}
 .masthead .ears{
   display:flex;justify-content:space-between;align-items:flex-end;
@@ -84,7 +84,7 @@ body{
   line-height:.85;letter-spacing:-.02em;
   position:relative;display:inline-block;
 }
-/* cheap press: the red plate lands slightly off register */
+
 .title .plate{
   position:absolute;left:0;top:0;color:var(--press-red);
   z-index:-1;transform:translate(5px,4px);
@@ -103,7 +103,7 @@ body{
   font-size:.72rem;letter-spacing:.06em;
 }
 
-/* ---------- layout ---------- */
+
 .above-fold{
   display:grid;gap:var(--gutter);margin-top:var(--gutter);
   grid-template-columns:1.45fr 1fr;
@@ -121,12 +121,12 @@ body{
 }
 .section-head::after{content:"";flex:1;height:0;border-top:var(--rule) solid var(--ink)}
 
-/* ---------- hero cartoon ---------- */
+
 .hero-panel{display:flex;flex-direction:column;gap:12px}
 .hero-art{width:100%;height:auto;display:block}
 .sig{font-family:var(--hand);font-size:1.05rem;color:var(--ink-soft);margin:6px 0 0}
 
-/* ---------- the column ---------- */
+
 .column h3{
   font-family:var(--hand);font-weight:400;font-size:1.5rem;margin:0 0 4px;
 }
@@ -140,7 +140,7 @@ body{
 }
 .column p:last-child{margin-bottom:0}
 
-/* ---------- project strip ---------- */
+
 .strip{display:grid;gap:var(--gutter);grid-template-columns:repeat(2,1fr)}
 @media (max-width:780px){.strip{grid-template-columns:1fr}}
 
@@ -156,7 +156,7 @@ body{
   .toon:hover{transform:rotate(0deg) translateY(-3px)}
   .toon.lead:hover{transform:translateY(-3px)}
 }
-/* tap feedback, because touch devices have no hover */
+
 .toon:active{transform:scale(.994)}
 a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
 
@@ -164,7 +164,7 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
   position:relative;aspect-ratio:4/3;background:var(--paper-lit);overflow:hidden;
 }
 .toon .art img{width:100%;height:100%;object-fit:cover;display:block}
-/* only for the shipped line drawings — your illustrations fill the frame */
+
 .toon .art.placeholder img{object-fit:contain;padding:9%}
 .toon .txt{display:flex;flex-direction:column;flex:1}
 .toon.lead{grid-column:1/-1;transform:none;flex-direction:row;gap:calc(var(--gutter) * 1.2)}
@@ -176,8 +176,7 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
   font-family:var(--hand);font-weight:400;font-size:1.3rem;
   margin:0;line-height:1.15;
 }
-/* the whole panel is the hit area, but a screen reader only ever hears the
-   project title as the link name — never the entire card */
+
 .toon h3 a{
   color:inherit;text-decoration:underline;text-decoration-thickness:1px;
   text-underline-offset:3px;text-decoration-color:rgba(0,0,0,.4);
@@ -187,13 +186,12 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
 .toon .caption{
   font-size:.86rem;line-height:1.5;font-style:italic;margin:0;color:var(--ink-soft);
 }
-/* margin:auto 0 0 pins this to the bottom. Writing margin:0 after
-   margin-top:auto silently cancels it — that was the old bug. */
+
 .toon .stack{
   font-family:var(--hand);font-size:.85rem;color:var(--ink);
   border-top:1px solid var(--ink);padding-top:6px;margin:auto 0 0;
 }
-/* the printed cue — the only one that exists on a phone */
+
 .toon .jump{
   font-family:var(--hand);font-size:.92rem;color:var(--press-red);
   margin:7px 0 0;overflow-wrap:anywhere;
@@ -206,7 +204,7 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
   .toon:hover .jump .arrow{transform:translateX(5px)}
 }
 
-/* ---------- classifieds ---------- */
+
 .classifieds{columns:3;column-gap:var(--gutter);column-rule:1px solid var(--ink)}
 @media (max-width:820px){.classifieds{columns:2}}
 @media (max-width:480px){.classifieds{columns:1;column-rule:0}}
@@ -218,7 +216,7 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
 .ad:last-child{border-bottom:0}
 .ad b{letter-spacing:.03em}
 
-/* ---------- letters / contact ---------- */
+
 .letters{display:grid;gap:var(--gutter);grid-template-columns:1.2fr 1fr}
 @media (max-width:820px){.letters{grid-template-columns:1fr}}
 .wants{list-style:none;margin:14px 0 0;padding:0;font-family:var(--hand);font-size:1.15rem}
@@ -227,7 +225,7 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
 .wants a{color:var(--ink);text-decoration-thickness:1px;text-underline-offset:4px}
 .wants a:hover,.wants a:focus-visible{color:var(--press-red)}
 
-/* ---------- colophon ---------- */
+
 .colophon{
   margin-top:calc(var(--gutter) * 1.6);padding-top:12px;
   border-top:var(--rule) solid var(--ink);
@@ -235,20 +233,20 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
   font-size:.72rem;letter-spacing:.04em;
 }
 
-/* ---------- small screens ---------- */
+
 @media (max-width:780px){
-  /* nowrap headings were overflowing the viewport */
+
   .section-head{display:block}
   .section-head h2{white-space:normal}
   .section-head::after{display:block;width:100%;margin-top:8px}
 }
 @media (max-width:640px){
-  /* justified text in a narrow column opens rivers of white space */
+
   .column p{text-align:left;hyphens:none}
   .masthead .ears{font-size:.78rem;gap:12px}
   .masthead .ears span{flex:1}
   .dateline{font-size:.68rem;gap:4px 14px}
-  /* comfortable tap targets */
+ 
   .wants li{padding:13px 0}
   .wants{font-size:1.1rem}
   .toon .art.placeholder img{padding:6%}
@@ -257,7 +255,7 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
   .title{font-size:2.15rem}
 }
 
-/* ---------- if someone prints the page instead of using the PDF ---------- */
+
 @media print{
   body{background:#fff}
   .sheet{max-width:none;margin:0;padding:0;box-shadow:none;background:#fff}
@@ -265,7 +263,7 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
   .toon{break-inside:avoid;transform:none;cursor:auto}
   .toon.lead{break-after:page}
   a{text-decoration:none;color:#000}
-  /* on paper the stretched overlay is useless — print the URL instead */
+  
   .toon h3 a::after{
     content:" (" attr(href) ")";position:static;inset:auto;
     font-family:var(--serif);font-size:.62em;
@@ -281,7 +279,7 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
 </head>
 <body>
 
-<!-- panel-wobble filters -->
+
 <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
   <defs>
     <filter id="ink-a"><feTurbulence type="fractalNoise" baseFrequency="0.024" numOctaves="3" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4.5" xChannelSelector="R" yChannelSelector="G"/></filter>
@@ -306,7 +304,7 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
     <div class="dateline">
       <span>Vol. I, No. 1</span>
       <span>Kitchener–Waterloo, Ontario</span>
-      <span>Full Stack Developer</span>
+      <span>Software Developer</span>
       <span>Price: one coffee chat</span>
     </div>
   </header>
@@ -327,11 +325,7 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
     </section>
   </div>
 
-  <!-- ================= PROJECTS =================
-       Each panel is clickable across its whole area. The <a> sits on the
-       <h3> and is stretched over the card by .toon h3 a::after — so the
-       link's accessible name stays just the project title.
-       Every panel needs a destination. FILL-ME-IN below must be replaced. -->
+  
   <div class="section-head"><h2>Today's strip: seven things I built</h2></div>
 
   <div class="strip">
@@ -344,7 +338,7 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
       <h3><a href="https://ddos-attack-dashboard.vercel.app" target="_blank" rel="noopener">DDoS Attack Dashboard</a></h3>
       <p class="caption">The Master's research said the filtering was adaptive. The dashboard says it in colour, with an admin login.</p>
       <p class="stack">React · Supabase · Recharts</p>
-      <p class="jump">Continued at ddos-attack-dashboard.vercel.app <span class="arrow">→</span></p>
+      <p class="jump">Continued at vercel app <span class="arrow">→</span></p>
       </div>
     </article>
 
@@ -356,7 +350,7 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
       <h3><a href="https://fitness-tracker-eosin-eight.vercel.app/" target="_blank" rel="noopener">Fitness Tracker</a></h3>
       <p class="caption">Five tables, cascading deletes, UUID keys throughout — and still no excuse to skip leg day.</p>
       <p class="stack">Next.js · PostgreSQL · Docker · Actions</p>
-      <p class="jump">Continued on GitHub <span class="arrow">→</span></p>
+      <p class="jump">Continued at vercel app <span class="arrow">→</span></p>
       </div>
     </article>
 
@@ -368,7 +362,7 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
       <h3><a href="https://github-career-intel.vercel.app/" target="_blank" rel="noopener">GitHub Career Intelligence</a></h3>
       <p class="caption">Reads your repos by byte weight and tells you which language you actually write — not the one on your résumé.</p>
       <p class="stack">React · GitHub REST · Recharts</p>
-      <p class="jump">Continued at github-career-intel.vercel.app <span class="arrow">→</span></p>
+      <p class="jump">Continued at vercel app <span class="arrow">→</span></p>
       </div>
     </article>
 
@@ -380,7 +374,7 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
       <h3><a href="https://estate-hub-coral.vercel.app/" target="_blank" rel="noopener">EstateHub</a></h3>
       <p class="caption">Listings, filters, and a search that does not quietly round the square footage up.</p>
       <p class="stack">TypeScript · React · Express · PostgreSQL</p>
-      <p class="jump">Continued on GitHub <span class="arrow">→</span></p>
+      <p class="jump">Continued at vercel app <span class="arrow">→</span></p>
       </div>
     </article>
 
@@ -392,7 +386,7 @@ a:focus-visible{outline:3px solid var(--press-red);outline-offset:4px}
       <h3><a href="insurance-claims-dashboard-psi.vercel.app" target="_blank" rel="noopener">ClaimTrack</a></h3>
       <p class="caption">Insurance claims, charted. Somebody had to make the paperwork legible and it may as well have been me.</p>
       <p class="stack">React 18 · TypeScript · Router v6 · Vite</p>
-      <p class="jump">Continued on GitHub <span class="arrow">→</span></p>
+      <p class="jump">Continued at vercel app <span class="arrow">→</span></p>
       </div>
     </article>
 
